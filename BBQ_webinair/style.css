@@ -1,0 +1,213 @@
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video { margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline;}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section { display: block;}
+body { line-height: 1;}
+ol,ul { list-style: none;}
+blockquote,q { quotes: none;}
+blockquote:before,blockquote:after,q:before,q:after { content: ''; content: none;}
+table { border-collapse: collapse; border-spacing: 0;}
+
+:root {
+    --orange:#F18119;
+    --dark-orange:#FF713B;
+    --light-orange: #FFA51D; 
+    --grey: #5A5A5A;
+    --grey-alpha: rgba(90,90,90, 0.7);
+    --dark-grey: #404040;
+    --dark-grey-alpha:rgba(64,64,64, 0.7);
+    --white: #FFF;
+}
+
+html {
+    box-sizing: border-box;
+}
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    color: var(--grey);
+    text-align: center;
+    letter-spacing: 1px; 
+}
+
+/*======================
+TYPOGRAPHY
+======================*/
+
+.image-content__decoration {
+    color: var(--orange);
+    font-size: 0.625rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    align-self: center;
+    display: grid;
+    height: 20px;
+    align-content: space-between;
+}
+
+.image-content__decoration::before {
+    content: "";
+    display: block;
+    height: 5px;
+    background-image: linear-gradient( to right, var(--light-orange),#c95122);
+}
+
+.image-content__title {
+    font-size: 2.25rem;
+    color: var(--white); 
+}
+
+.image-content__title--highlight {
+    font-weight: 900;
+}
+
+.image-content__subtitle {
+    font-size: 1.3125rem;
+    text-transform: uppercase;
+    color: var(--orange);
+    font-weight: 900;
+}
+
+.main-content__title {
+    font-size: 1.3125rem;
+    color: var(--dark-grey);
+    font-weight: 900;
+}
+
+.main-content__subtitle {
+    text-transform: uppercase;
+    color: var(--orange);
+    font-weight: 900;
+    letter-spacing: 1px;
+    margin-top: 0.3em;
+    margin-bottom:1.5em;
+}
+
+.form_desc {
+    font-size: 0.625rem;
+    letter-spacing: 1px;
+    margin-top: 2em;
+    font-weight: 400;
+}
+
+
+/*======================
+LAYOUT
+======================*/
+
+
+.form__item {
+    display: block;
+    margin: 1em auto;
+    padding: 1rem 0.5rem ; 
+    border-radius: 7px;
+    border: 1px solid  #818181;
+    width: 90%; 
+    max-width: 350px;
+    font-size: 1rem;
+    transform: scale(1);
+    transition: transform 0.5s ease;
+}
+
+.form__item:hover,
+.form__item:focus {
+    transform: scale(1.1);
+    outline: none;
+    border: 1px solid var(--orange);
+}
+
+.form__item--button {
+    background-image: linear-gradient(to right, var(--light-orange), var(--dark-orange));
+    color: var(--white);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 0.625rem;
+    font-weight: bold;
+    padding: 1.2rem 0;
+    transform: scale(1) rotateX(0deg);
+    transition: all .5s ease ;
+}
+
+
+.form__item--button:hover,
+.form__item--button:focus {
+    background-image: linear-gradient(to right, #FFA51D, #c95122);
+    cursor: pointer;
+    color:var(--dark-grey);
+    transform: scale(1.1) rotateX(360deg);
+    border: 1px solid var(--grey);
+}
+
+::placeholder {
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.image-content { 
+    background-color: #404040;  
+    background-image:url(./assets/steak5.jpg); 
+     background-blend-mode: multiply; /* zamiast tego mozna gradient jako drugi bgi */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:center;   
+    padding: 0em 0.5em 2em 0.5em;
+}
+
+.main-content {
+    margin-top: 2em;
+    padding: 0 1em;
+} 
+
+.container {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.image-content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 46vw;
+    position: relative;
+}  
+
+@media screen and (min-width:700px) {
+
+    body {
+        font-size: 1.125rem;
+    }
+
+    .image-content__title {
+        font-size: 3.5rem;
+    }
+
+    .image-content__subtitle, .main-content__title {
+        font-size: 1.75rem;
+    }
+
+    .wrapper {
+        display: grid;
+        grid-template-columns: 3fr 2fr;
+    }
+
+    .main-content {
+        display: grid;
+        place-items: center;
+        margin-top: 0;
+        min-height: 100vh; 
+    }
+
+    .image-content {
+        min-height: auto;
+    } 
+
+    .image-content-container {
+        height: 100%;
+    } 
+}
